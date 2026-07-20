@@ -72,11 +72,13 @@ async function streamRequest(url, body, handlers) {
 }
 
 export function sendChatMessage(message, history, handlers) {
-  const baseUrl = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "" : "https://ag-ui-project.onrender.com");
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+  const baseUrl = import.meta.env.VITE_API_URL || (isLocal ? "" : "https://ag-ui-project.onrender.com");
   return streamRequest(`${baseUrl}/api/chat`, { message, history }, handlers);
 }
 
 export function sendAction(action, payload, handlers) {
-  const baseUrl = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "" : "https://ag-ui-project.onrender.com");
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+  const baseUrl = import.meta.env.VITE_API_URL || (isLocal ? "" : "https://ag-ui-project.onrender.com");
   return streamRequest(`${baseUrl}/api/action`, { action, payload }, handlers);
 }
