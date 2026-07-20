@@ -72,13 +72,9 @@ async function streamRequest(url, body, handlers) {
 }
 
 export function sendChatMessage(message, history, handlers) {
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-  const baseUrl = import.meta.env.VITE_API_URL || (isLocal ? "" : "https://ag-ui-project.onrender.com");
-  return streamRequest(`${baseUrl}/api/chat`, { message, history }, handlers);
+  return streamRequest("/api/chat", { message, history }, handlers);
 }
 
 export function sendAction(action, payload, handlers) {
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-  const baseUrl = import.meta.env.VITE_API_URL || (isLocal ? "" : "https://ag-ui-project.onrender.com");
-  return streamRequest(`${baseUrl}/api/action`, { action, payload }, handlers);
+  return streamRequest("/api/action", { action, payload }, handlers);
 }
