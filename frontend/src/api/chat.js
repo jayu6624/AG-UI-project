@@ -72,9 +72,11 @@ async function streamRequest(url, body, handlers) {
 }
 
 export function sendChatMessage(message, history, handlers) {
-  return streamRequest("/api/chat", { message, history }, handlers);
+  const baseUrl = import.meta.env.VITE_API_URL || "";
+  return streamRequest(`${baseUrl}/api/chat`, { message, history }, handlers);
 }
 
 export function sendAction(action, payload, handlers) {
-  return streamRequest("/api/action", { action, payload }, handlers);
+  const baseUrl = import.meta.env.VITE_API_URL || "";
+  return streamRequest(`${baseUrl}/api/action`, { action, payload }, handlers);
 }

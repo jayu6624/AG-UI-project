@@ -4,7 +4,11 @@ import "dotenv/config";
 import { chatRouter } from "./routes/chat.js";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL 
+    ? process.env.FRONTEND_URL.split(",") 
+    : "http://localhost:5173"
+}));
 app.use(express.json());
 
 app.get("/health", (_req, res) => res.json({ ok: true }));
