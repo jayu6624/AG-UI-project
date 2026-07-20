@@ -41,12 +41,6 @@ Open `http://localhost:5173` and try the suggestion chips, or type:
 - "Get my latest orders"
 - "Hello, how are you?"
 
-## Free Deployment
-
-This app is configured to be deployed for **free**:
-1. **Frontend**: Deploy on [Vercel](https://vercel.com). The `frontend/vercel.json` file handles all API proxying automatically.
-2. **Backend**: Deploy on [Render](https://render.com) (Web Service, Node environment). Add your API keys into the environment variables during setup.
-
 ## Architecture actually implemented
 
 ```
